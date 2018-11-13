@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		
+		<meta charset="UTF-8"></meta>
+		<meta name="description" content="District-1 Template"></meta>
+		<meta name="keywords" content="HTML,CSS,XML,JavaScript"></meta>
+		<meta name="author" content="Bill Aurnhammer"></meta>
+		<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0 user-scalable=no"></meta>
+		
+		<link href="./css/stylesheet.css" rel="stylesheet"></link>
+		<script src="js/jquery-2.1.4.min.js"></script>
+		<script src="./js/default.js"/></script>
+		<script src="./js/state.js"/></script>
+		<script src="./js/main.js"/></script>
+		
+	</head>
+	<body>
+		<div class="wrapper">
+			<div class="status">
+				Version 1.0
+			</div>
+			<!-- onboard  -->
+			<div id=onboard class="page">
+				<div class="flex-item header">
+					Welcome
+				</div>
+				<div class="flex-item main">
+					This is the onboard page.
+				</div>
+				<div class="flex-item footer">Invite your friends to play or play by yourself.</div>
+				<div class="flex-item footer">
+					<button class="button" onclick="multiplayerSelected();">Multiplayer</button>
+					<button class="button" onclick="singleplayerSelected();">Singleplay</button>
+				</div>
+				&nbsp;
+			</div>
+			<!-- pause -->
+			<div id=pause class="page">
+				<div class="flex-item header">
+					Pause
+				</div>
+				<div class="flex-item main">
+				</div>
+				<div class="flex-item footer">
+					Restart or Resume Game.
+				</div>
+				<div class="flex-item footer">
+					<button class="button" onclick="reset();">Restart</button>
+					<button class="button" onclick="resumeGame();">Resume</button>
+				</div>
+				&nbsp;
+			</div>
+			<!-- invite -->
+			<div id=invite class="page">
+				<div class="flex-item header">
+					Invite
+				</div>
+				<div class="flex-item main">
+				</div>
+				<div class="flex-item footer">
+					Start the game or Invite more.
+				</div>
+				<div class="flex-item footer">
+					<button class="button" onclick="startMultiplayer();">Start</button>
+					<button class="button" onclick="showCloudSharing();">Invite</button>
+				</div>
+				&nbsp;
+			</div>
+			<!-- waiting-->
+			<div id=waiting class="page">
+				<div class="flex-item header">
+					Waiting
+				</div>
+				<div class="flex-item main">
+					<button id="map_button" class="button" onclick="setGameShareStateActive(true);">Simulate Owner Set Active</button>
+				</div>
+				<div class="flex-item">
+					<div class="text">
+					The host has not yet started the game. Please invite your friends to play.
+					</div>
+				</div>
+				<div class="flex-item footer">
+					<button class="button" onclick="showCloudSharing();">Invite more…</button>
+				</div>
+				&nbsp;
+			</div>
+			<!--navigation-->
+			<div id=navigation class="page">
+				<div class="flex-item header">
+					Playing
+				</div>
+				<div class="flex-item main">
+					<button class="button" onclick="sendMessage();">Send Messasge</button>
+				</div>
+				<div class="flex-item main">
+					<button id=fraunces class="button" onclick="goTo(fraunces);">Fraunces Tavern</button>
+					<button id=bowling class="button" onclick="goTo(bowling)">Bowling Green</button>
+				</div>
+				<div class="flex-item main">
+					<button id=trinity class="button" onclick="goTo(trinity);">Trinity</button>
+					<button id=pauls class="button" onclick="goTo(pauls)">St. Pauls</button>
+				</div>
+				<div class="flex-item footer">
+					Pause the game or invite more.
+				</div>
+				<div class="flex-item footer">
+					<button id=pause class="button" onclick="pauseGame()">Pause</button>
+					<button id=invite class="button" onclick="showCloudSharing();">Invite</button>
+				</div>
+				&nbsp;
+			</div>
+			<!--fraunces-->
+			<div id=fraunces class="page">
+				<div class="flex-item header">
+					Fraunces Tavern
+				</div>
+				<div class="flex-item main">
+					Go back to Navigation or get Directions.
+				</div>
+				<div class="flex-item footer">
+					<button class="button" onclick="goTo(navigation);">Back</button>
+					<button class="button" onclick="showDirections($(this)[0].closest('.page').id);">Directions</button>
+					<button id="ar" class="button" onclick="showAR($(this)[0].closest('.page').id);">AR Scene</button>
+				</div>
+				&nbsp;
+			</div>
+			<!--bowling-->
+			<div id=bowling class="page">
+				<div class="flex-item header">
+					Bowling Green
+				</div>
+				<div class="flex-item main">
+					Go back to Navigation or get Directions.
+				</div>
+				<div class="flex-item footer">
+					<button class="button" onclick="goTo(navigation);">Back</button>
+					<button class="button" onclick="showDirections($(this)[0].closest('.page').id);">Directions</button>
+					<button id="ar" class="button" onclick="showAR($(this)[0].closest('.page').id);">AR Scene</button>
+				</div>
+				&nbsp;
+			</div>
+			<!--trinity-->
+			<div id=trinity class="page">
+				<div class="flex-item header">
+					Trinity Church
+				</div>
+				<div class="flex-item main">
+					Go back to Navigation or get Directions.
+				</div>
+				<div class="flex-item footer">
+					<button class="button" onclick="goTo(navigation);">Back</button>
+					<button class="button" onclick="showDirections($(this)[0].closest('.page').id);">Directions</button>
+					<button id="ar" class="button" onclick="showAR($(this)[0].closest('.page').id);">AR Scene</button>
+				</div>
+				&nbsp;
+			</div>
+			<!--pauls-->
+			<div id=pauls class="page">
+				<div class="flex-item header">
+					St. Paul’s
+				</div>
+				<div class="flex-item main">
+					Go back to Navigation or get Directions.
+				</div>
+				<div class="flex-item footer">
+					<button class="button" onclick="goTo(navigation);">Back</button>
+					<button class="button" onclick="showDirections($(this)[0].closest('.page').id);">Directions</button>
+					<button id="ar" class="button" onclick="showAR($(this)[0].closest('.page').id);">AR Scene</button>
+				</div>
+				&nbsp;
+			</div>
+		</div>
+	</body>
+</html>
+
+
